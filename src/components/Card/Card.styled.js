@@ -6,7 +6,7 @@ export const StyledList = styled.ul`
   justify-content: center;
   margin-top: 50px;
   row-gap: 50px;
-  column-gap: 28px;
+  column-gap: ${({ theme }) => theme.spacing(2)};
 `;
 export const StyledFavBtn = styled.button`
   display: block;
@@ -15,8 +15,8 @@ export const StyledFavBtn = styled.button`
 `;
 export const StyledFavIcon = styled.div`
   position: absolute;
-  top: 14px;
-  right: 14px;
+  top: ${({ theme }) => theme.spacing(1)};
+  right: ${({ theme }) => theme.spacing(1)};
   width: 18px;
   height: 18px;
   fill: transparent;
@@ -31,18 +31,19 @@ export const StyledImgWrapper = styled.div`
   position: relative;
   width: 274px;
   height: 268px;
+  margin-bottom: ${({ theme }) => theme.spacing(1)};
   background: linear-gradient(
     180deg,
     rgba(18, 20, 23, 0.5) 2.5%,
     rgba(18, 20, 23, 0) 41.07%
   );
-  border-radius: 14px;
+  border-radius: ${({ theme }) => theme.spacing(1)};
 `;
 export const StyledImg = styled.img`
   height: 100%;
   width: 100%;
   object-fit: cover;
-  border-radius: 14px;
+  border-radius: ${({ theme }) => theme.spacing(1)};
 `;
 
 export const StyledWrapperName = styled.div`
@@ -58,6 +59,7 @@ export const StyledNameAccent = styled.span`
 `;
 export const StyledLearnMore = styled.button`
   min-width: 274px;
+  margin-top: ${({ theme }) => theme.spacing(2)};
   padding-top: 12px;
   padding-bottom: 12px;
   border-radius: 12px;
@@ -77,10 +79,26 @@ export const StyledLearnMore = styled.button`
 `;
 
 export const StyledDescr = styled.div`
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: 12px;
   color: ${({ theme }) => theme.colors.text};
+  p {
+    position: relative;
+    margin-right: 12px;
+  }
+  p:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -6px;
+    transform: translateY(-50%);
+    margin: 0 auto;
+    width: 1px;
+    height: 16px;
+    background-color: ${({ theme }) => theme.colors.text};
+  }
 `;

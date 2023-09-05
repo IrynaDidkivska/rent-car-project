@@ -17,6 +17,6 @@ export const theme = {
     background: "#3470FF",
     backgroundHover: "#0B44CD",
   },
-  spacing: (value) => `${value * 4}px`,
+  spacing: (value) => `${value * 14}px`,
   transition: "all 300ms ease-in-out;",
 };

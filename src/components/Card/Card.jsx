@@ -47,8 +47,11 @@ export const Card = () => {
                 <StyledName>{item.rentalPrice}</StyledName>
               </StyledWrapperName>
               <StyledDescr>
-                <p>{item.address}</p>
+                <p>{item.address.split(",")[1].trim()}</p>
+                <p>{item.address.split(",")[2].trim()}</p>
                 <p>{item.rentalCompany}</p>
+              </StyledDescr>
+              <StyledDescr>
                 <p>{item.type}</p>
                 <p>{item.model}</p>
                 <p>{item.id}</p>

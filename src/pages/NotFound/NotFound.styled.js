@@ -5,7 +5,7 @@ export const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: ${({ theme }) => theme.spacing(1)};
+  gap: 4px;
   padding: 5px;
   font-family: Manrope-SemiBold;
   font-size: 24px;
@@ -25,7 +25,7 @@ export const StyledThumb = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing(2)};
+  gap: 8px;
   background: linear-gradient(
     220deg,
     rgb(6 104 252 / 90%) 3.47%,

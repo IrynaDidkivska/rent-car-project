@@ -6,9 +6,9 @@ export const StyledForm = styled.form`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: ${({ theme }) => theme.spacing(10)};
+  gap: 40px;
   padding: 15px 40px 52px 35px;
-  border-radius: ${({ theme }) => theme.spacing(6)};
+  border-radius: 24px;
   background: ${({ theme }) => theme.colors.background};
 `;
 export const StyledCloseIcon = styled.div`
