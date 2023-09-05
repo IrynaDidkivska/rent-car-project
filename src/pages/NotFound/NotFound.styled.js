@@ -12,7 +12,7 @@ export const StyledLink = styled(Link)`
   color: ${({ theme }) => theme.link.textColor};
   cursor: pointer;
 
-  transition: all 300ms ease-in-out;
+  transition: ${({ theme }) => theme.transition};
   &:hover {
     font-size: 26px;
     text-decoration: underline;

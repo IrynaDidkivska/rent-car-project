@@ -10,7 +10,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { carsReducer } from "./operations";
+import { carsReducer } from "./Slice";
 
 const persistConfig = {
   key: "root",
@@ -30,7 +30,7 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
-  devTools: process.env.NODE_ENV !== "production",
+  //   devTools: process.env.NODE_ENV !== "production",
 });
 
 export const persistor = persistStore(store);

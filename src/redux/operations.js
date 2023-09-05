@@ -1,47 +1,19 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
-export const slice = createSlice({
-  name: "cars",
-  initialState: {
-    item: [],
-    error: "",
-    isLoggedIn: false,
-  },
-  filterValue: "",
-  //   extraReducers: (builder) => {
-  //     builder
-  //       .addCase(registerUserThunk.fulfilled, (state, { payload }) => {
-  //         state.user.name = payload.user.name;
-  //         state.user.email = payload.user.email;
-  //         state.token = payload.token;
-  //         state.isLoggedIn = true;
-  //       })
-  //       .addCase(refreshThunk.fulfilled, (state, { payload }) => {
-  //         state.user.name = payload.name;
-  //         state.user.email = payload.email;
-  //         state.isLoggedIn = true;
-  //         state.isRefreshing = false;
-  //       })
-  //       .addCase(refreshThunk.pending, (state) => {
-  //         state.isRefreshing = true;
-  //       })
-  //       .addCase(refreshThunk.rejected, (state) => {
-  //         state.isRefreshing = false;
-  //       })
-
-  //       .addCase(loginUserThunk.fulfilled, (state, { payload }) => {
-  //         state.user.name = payload.user.name;
-  //         state.user.email = payload.user.email;
-  //         state.token = payload.token;
-  //         state.isLoggedIn = true;
-  //       })
-  //       .addCase(logoutThunk.fulfilled, (state, { payload }) => {
-  //         state.user.name = "";
-  //         state.user.email = "";
-  //         state.token = "";
-  //         state.isLoggedIn = false;
-  //       });
-  //   },
+export const API = axios.create({
+  baseURL: "https://64de0f84825d19d9bfb1f614.mockapi.io/",
 });
 
-export const carsReducer = slice.reducer;
+export const fetchCars = createAsyncThunk(
+  "cars/fetchAll",
+  async (_, thunkAPI) => {
+    try {
+      const { data } = await API.get("advert");
+      console.log(data);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
