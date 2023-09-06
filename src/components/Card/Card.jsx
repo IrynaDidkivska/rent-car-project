@@ -41,8 +41,7 @@ export const Card = () => {
               <StyledWrapperName>
                 <StyledName>
                   {item.make}
-                  <StyledNameAccent> {item.model}</StyledNameAccent>,{" "}
-                  {item.year}
+                  <StyledNameAccent> {item.model}</StyledNameAccent>,{item.year}
                 </StyledName>
                 <StyledName>{item.rentalPrice}</StyledName>
               </StyledWrapperName>
@@ -55,6 +54,7 @@ export const Card = () => {
                 <p>{item.type}</p>
                 <p>{item.model}</p>
                 <p>{item.id}</p>
+                <p>{item.functionalities[0]}</p>
               </StyledDescr>
               <StyledLearnMore type="button">Learn more</StyledLearnMore>
             </div>

@@ -14,8 +14,6 @@ export const slice = createSlice({
   // },
   extraReducers: (builder) => {
     builder.addCase(fetchCars.fulfilled, (state, { payload }) => {
-      console.log(state.items);
-      console.log(payload);
       state.items = payload;
     });
   },
