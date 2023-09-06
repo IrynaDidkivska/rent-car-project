@@ -7,17 +7,34 @@ export const slice = createSlice({
     items: [],
     error: "",
     isLoggedIn: false,
+    currentPage: 1,
+    itemsPerPage: 8,
   },
   filterValue: "",
-  // reducers: {
-  //   closeModal: (state, { payload }) => { },
-  // },
+  isModalOpen: false,
+  id: null,
+  reducers: {
+    loadMoreItems: (state) => {
+      console.log("currentPage", state.currentPage);
+      state.currentPage += 1;
+    },
+    modalOpen: (state, { payload }) => {
+      state.isModalOpen = true;
+      state.id = payload;
+    },
+    modalClose: (state, { payload }) => {
+      state.isModalOpen = false;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchCars.fulfilled, (state, { payload }) => {
       state.items = payload;
+      state.currentPage = 1;
+      console.log("items", state.items);
+      console.log("currentPage", state.currentPage);
     });
   },
 });
 
-export const { closeModal } = slice.actions;
+export const { loadMoreItems, modalOpen, modalClose } = slice.actions;
 export const carsReducer = slice.reducer;

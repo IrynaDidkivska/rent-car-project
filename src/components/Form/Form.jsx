@@ -1,26 +1,42 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { SpriteSVG } from "../../../public/SpriteSVG";
-import { StyledCloseIcon, StyledForm } from "./Form.styled";
-import { closeModal } from "../../redux/Slice";
+import { StyledCloseIcon, StyledForm, StyledLinkCall } from "./Form.styled";
+import { selectId, selectItem } from "../../redux/selectors";
+import { useEffect } from "react";
+import { fetchCars } from "../../redux/operations";
+import { modalClose } from "../../redux/Slice";
+
+// import { closeModal } from "../../redux/Slice";
 
 export const Form = () => {
   const dispatch = useDispatch();
+  const items = useSelector(selectItem);
+  const id = useSelector(selectId);
+
+  const filteredItem = items.filter((el) => el.id === id)[0];
+  console.log("Filtered", filteredItem);
+
+  useEffect(() => {
+    dispatch(fetchCars());
+  }, [dispatch]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(closeModal());
+    dispatch(modalClose());
   };
   return (
     <StyledForm onSubmit={handleSubmit}>
       <StyledCloseIcon
         onClick={() => {
           console.log("Close icon");
-          dispatch(closeModal());
+          dispatch(modalClose());
         }}
       >
         <SpriteSVG name={"close"} />
       </StyledCloseIcon>
-      <img src="" alt="car" />
+
+      <img src={filteredItem.img} alt="car" />
       <h1>title</h1>
       <ul>
         <li>text</li>
@@ -32,7 +48,7 @@ export const Form = () => {
         Rental Conditions:
         <li>text</li>
       </ul>
-      <button>Rental car</button>
+      <StyledLinkCall href="tel:+380730000000">Rental car</StyledLinkCall>
     </StyledForm>
   );
 };

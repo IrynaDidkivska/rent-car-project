@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import PropTypes from "prop-types";
 import { ModalOverlay } from "./Modal.styled";
-import { closeModal } from "../../redux/Slice";
+import { modalClose } from "../../redux/Slice";
 
 const Modal = ({ children }) => {
   const dispatch = useDispatch();
@@ -10,7 +10,7 @@ const Modal = ({ children }) => {
     const handleEscape = (e) => {
       if (e.code === "Escape") {
         console.log("Close Esc");
-        dispatch(closeModal());
+        dispatch(modalClose());
       }
     };
     window.addEventListener("keydown", handleEscape);
@@ -24,7 +24,7 @@ const Modal = ({ children }) => {
       onClick={(e) => {
         if (e.target === e.currentTarget) {
           console.log("Close overlay");
-          dispatch(closeModal());
+          dispatch(modalClose());
         }
       }}
     >

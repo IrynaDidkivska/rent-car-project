@@ -52,6 +52,7 @@ export const StyledWrapperName = styled.div`
   justify-content: space-between;
 `;
 export const StyledName = styled.p`
+  text-transform: capitalize;
   font-weight: 500;
 `;
 export const StyledNameAccent = styled.span`
@@ -100,5 +101,21 @@ export const StyledDescr = styled.div`
     width: 1px;
     height: 16px;
     background-color: ${({ theme }) => theme.colors.text};
+  }
+`;
+export const StyledLoadMore = styled.button`
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  border: none;
+  border-bottom: 1px solid #3470ff;
+  outline: none;
+  background-color: transparent;
+  color: ${({ theme }) => theme.button.textColor};
+  cursor: pointer;
+  transition: ${({ theme }) => theme.transition};
+  &:hover,
+  &:focus {
+    color: ${({ theme }) => theme.button.textColorHover};
   }
 `;
