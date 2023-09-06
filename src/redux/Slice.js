@@ -5,6 +5,7 @@ export const slice = createSlice({
   name: "cars",
   initialState: {
     items: [],
+    favoriteItems: [],
     error: "",
     isLoggedIn: false,
     currentPage: 1,
@@ -22,8 +23,14 @@ export const slice = createSlice({
       state.isModalOpen = true;
       state.id = payload;
     },
-    modalClose: (state, { payload }) => {
+    modalClose: (state) => {
       state.isModalOpen = false;
+    },
+    addFavorites: (state, { payload }) => {
+      state.favoriteItems.push(payload);
+    },
+    removeFavorites: (state, { payload }) => {
+      state.favoriteItems = state.favoriteItems.filter((id) => id !== payload);
     },
   },
   extraReducers: (builder) => {
@@ -36,5 +43,11 @@ export const slice = createSlice({
   },
 });
 
-export const { loadMoreItems, modalOpen, modalClose } = slice.actions;
+export const {
+  loadMoreItems,
+  modalOpen,
+  modalClose,
+  addFavorites,
+  removeFavorites,
+} = slice.actions;
 export const carsReducer = slice.reducer;

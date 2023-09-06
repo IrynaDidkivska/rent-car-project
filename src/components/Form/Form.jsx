@@ -1,10 +1,18 @@
 import { useDispatch, useSelector } from "react-redux";
 import { SpriteSVG } from "../../../public/SpriteSVG";
-import { StyledCloseIcon, StyledForm, StyledLinkCall } from "./Form.styled";
+import {
+  StyledCloseIcon,
+  StyledDescrForm,
+  StyledForm,
+  StyledLinkCall,
+  StyledNameAccentForm,
+  StyledNameForm,
+} from "./Form.styled";
 import { selectId, selectItem } from "../../redux/selectors";
 import { useEffect } from "react";
 import { fetchCars } from "../../redux/operations";
 import { modalClose } from "../../redux/Slice";
+import { StyledDescr } from "../Card/Card.styled";
 
 // import { closeModal } from "../../redux/Slice";
 
@@ -37,17 +45,36 @@ export const Form = () => {
       </StyledCloseIcon>
 
       <img src={filteredItem.img} alt="car" />
-      <h1>title</h1>
-      <ul>
-        <li>text</li>
-      </ul>
-      <p>text</p>
+      <StyledNameForm>
+        {filteredItem.make.toLowerCase()}
+        <StyledNameAccentForm> {filteredItem.model}</StyledNameAccentForm>,{" "}
+        {filteredItem.year}
+      </StyledNameForm>
+      <StyledDescr>
+        <p>{filteredItem.address.split(",")[1].trim()}</p>
+        <p>{filteredItem.address.split(",")[2].trim()}</p>
+        <p>Id: {filteredItem.id}</p>
+        <p>Year: {filteredItem.year}</p>
+        <p>Type: {filteredItem.type}</p>
+        <p>Fuel Consumption: {filteredItem.fuelConsumption}</p>
+        <p>Engine Size: {filteredItem.engineSize.split("-")[0].trim()}</p>
+      </StyledDescr>
+      <StyledDescrForm> {filteredItem.description}</StyledDescrForm>
       <h4>Accessories and functionalities:</h4>
-      <p>text</p>
-      <ul>
-        Rental Conditions:
-        <li>text</li>
-      </ul>
+      <div>
+        <p>{filteredItem.accessories}</p>
+        <p>{filteredItem.functionalities}</p>
+      </div>
+      <div>
+        <h4> Rental Conditions:</h4>
+
+        <p>
+          Minimum age : <span>25</span>
+        </p>
+        <p>Valid driver&apos;s license</p>
+        <p>Security deposite required </p>
+        <p>Mileage: {filteredItem.mileage.toLocaleString("en-US")}</p>
+      </div>
       <StyledLinkCall href="tel:+380730000000">Rental car</StyledLinkCall>
     </StyledForm>
   );

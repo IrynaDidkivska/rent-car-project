@@ -6,3 +6,5 @@ export const selectItemsPerPage = (state) => state.cars.itemsPerPage;
 export const selectModal = (state) => state.cars.isModalOpen;
 //id
 export const selectId = (state) => state.cars.id;
+//Fav
+export const selectFavorites = (state) => state.cars.favoriteItems;

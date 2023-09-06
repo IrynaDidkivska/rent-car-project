@@ -36,3 +36,18 @@ export const StyledLinkCall = styled.a`
     background: ${({ theme }) => theme.link.backgroundHover};
   }
 `;
+//Title
+export const StyledNameForm = styled.p`
+  font-size: 18px;
+  text-transform: capitalize;
+  font-weight: 500;
+`;
+export const StyledNameAccentForm = styled.span`
+  color: ${({ theme }) => theme.colors.accent};
+`;
+
+//Desc
+export const StyledDescrForm = styled.p`
+  font-size: 14px;
+  line-height: 1.43;
+`;

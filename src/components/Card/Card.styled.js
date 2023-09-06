@@ -27,6 +27,17 @@ export const StyledFavIcon = styled.div`
     stroke: ${({ theme }) => theme.colors.accent};
   }
 `;
+export const StyledFavIconChecked = styled.div`
+  position: absolute;
+  top: ${({ theme }) => theme.spacing(1)};
+  right: ${({ theme }) => theme.spacing(1)};
+  width: 18px;
+  height: 18px;
+  fill: transparent;
+  stroke: ${({ theme }) => theme.colors.mainWhite};
+  background: red;
+  transition: ${({ theme }) => theme.transition};
+`;
 export const StyledImgWrapper = styled.div`
   position: relative;
   width: 274px;
