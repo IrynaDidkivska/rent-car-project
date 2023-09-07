@@ -10,29 +10,23 @@ export const StyledLabelFilter = styled.p`
   color: ${({ theme }) => theme.colors.title};
 `;
 export const StyledInput = styled.input`
-  width: 100px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  padding-left: 16px;
+  width: 105px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 24px;
   border: none;
   outline: none;
   cursor: pointer;
   background-color: #f7f7fb;
   &::placeholder {
     font-family: inherit;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 500;
     line-height: 1.11;
     color: ${({ theme }) => theme.colors.mainBlack};
   }
   @media screen and (min-width: 1280px) {
-    &::placeholder {
-      font-size: 18px;
-    }
     width: 160px;
-    padding-top: 14px;
-    padding-bottom: 14px;
-    padding-left: 24px;
   }
 `;
 export const StyledInputFrom = styled(StyledInput)`

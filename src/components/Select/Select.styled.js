@@ -8,30 +8,23 @@ export const StyledSelect = styled(Select)`
     margin: 0px;
     color: ${({ theme }) => theme.colors.mainBlack};
     font-family: Manrope-Regular;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 500;
     line-height: 1.11;
-    @media screen and (min-width: 1280px) {
-      font-size: 18px;
-    }
   }
   .react-select__value-container {
     padding: 0;
     align-items: start;
   }
   .react-select__control {
-    height: 38px;
-    padding: 12px 14px 12px 14px;
+    height: 48px;
+    padding: 14px 18px 14px 18px;
     cursor: pointer;
     border-radius: 14px;
     background-color: #f7f7fb;
     border: none !important;
     box-shadow: none !important;
     outline: none !important;
-    @media screen and (min-width: 1280px) {
-      height: 48px;
-      padding: 14px 18px 14px 18px;
-    }
   }
 
   .react-select__input-container {
@@ -50,7 +43,7 @@ export const StyledSelect = styled(Select)`
   }
 
   .react-select__menu {
-    padding: 12px 14px 12px 14px;
+    padding: 14px 18px 14px 18px;
     border-radius: 14px;
     max-height: 272px;
     overflow: hidden;
@@ -59,9 +52,6 @@ export const StyledSelect = styled(Select)`
     color: ${({ theme }) => theme.colors.mainBlack};
     background: ${({ theme }) => theme.colors.background};
     box-shadow: 0px 4px 36px 0px rgba(0, 0, 0, 0.02);
-    @media screen and (min-width: 1280px) {
-      padding: 14px 18px 14px 18px;
-    }
   }
   .react-select__menu-list {
     overflow-y: auto; /* Добавляем вертикальную прокрутку при необходимости */
@@ -70,13 +60,10 @@ export const StyledSelect = styled(Select)`
   .react-select__placeholder {
     margin: 0;
     font-family: inherit;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 500;
     line-height: 1.11;
     color: ${({ theme }) => theme.colors.mainBlack};
-    @media screen and (min-width: 1280px) {
-      font-size: 18px;
-    }
   }
 
   .react-select__indicator-separator {
@@ -90,13 +77,13 @@ export const StyledSelect = styled(Select)`
 `;
 
 export const StyledSelectBrand = styled(StyledSelect)`
-  width: 157px;
+  width: 224px;
   @media screen and (min-width: 1280px) {
-    width: 224px;
+    width: 170px;
   }
 `;
 export const StyledSelectPrice = styled(StyledSelect)`
-  width: 100px;
+  width: 125px;
 `;
 
 export const StyledIconSelect = styled.div`
