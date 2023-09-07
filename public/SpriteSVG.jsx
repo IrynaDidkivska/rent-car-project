@@ -97,5 +97,6 @@ SpriteSVG.propTypes = {
     'user',
     'phone',
     'shield',
+    'dollar',
   ]).isRequired,
 };

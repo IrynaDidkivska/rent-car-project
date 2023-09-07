@@ -34,7 +34,7 @@ export const StyledSelect = styled(Select)`
 
   /* Стили для опций (вариантов) */
   .react-select__option {
-    color: ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.mainBlack};
     font-family: Manrope;
     font-size: 16px;
     font-weight: 500;
@@ -72,14 +72,13 @@ export const StyledSelect = styled(Select)`
   .react-select__control.react-select__control--menu-is-open
     .react-select__indicators {
     transform: rotate(-180deg);
-    align-items: flex-start;
   }
 `;
 
 export const StyledSelectBrand = styled(StyledSelect)`
-  width: 224px;
+  width: 170px;
   @media screen and (min-width: 1280px) {
-    width: 170px;
+    width: 224px;
   }
 `;
 export const StyledSelectPrice = styled(StyledSelect)`
@@ -99,7 +98,7 @@ export const StyledIconSelect = styled.div`
 
 export const StyledIconDollar = styled.div`
   position: absolute;
-  right: 10px;
+  right: 34px;
   width: 11px;
   height: 20px;
   display: flex;

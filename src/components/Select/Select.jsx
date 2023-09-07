@@ -1,4 +1,10 @@
+import { useDispatch, useSelector } from 'react-redux';
 import { SpriteSVG } from '../../../public/SpriteSVG';
+import {
+  selectItem,
+  selectValueBrand,
+  selectValuePrice,
+} from '../../redux/selectors';
 import {
   StyledIconDollar,
   StyledIconSelect,
@@ -7,18 +13,42 @@ import {
   StyledSelectPrice,
   Wrapper,
 } from './Select.styled';
+import uniq from 'lodash.uniq';
+import { selectBrand, selectPrice } from '../../redux/Slice';
+
 export const Selects = () => {
+  const dispatch = useDispatch();
+  const items = useSelector(selectItem);
+  const valueBrand = useSelector(selectValueBrand);
+
+  const valuePrice = useSelector(selectValuePrice);
+
+  const brandOptions = uniq(items.map(({ make }) => make))
+    .sort()
+    .map(brand => ({
+      value: brand,
+      label: brand,
+    }));
+
+  const priceOption = uniq(
+    items.map(({ rentalPrice }) => Number(rentalPrice.replace('$', '')))
+  )
+    .sort((a, b) => a - b)
+    .map(price => ({
+      value: price,
+      label: price,
+    }));
+
   return (
     <>
       <Wrapper>
         <StyledLabelSelect>Car brand</StyledLabelSelect>
         <StyledSelectBrand
           placeholder="Enter the text"
-          // options={normalized}
-          // defaultValue={initialValue}
-          // value={initialValue}
+          options={brandOptions}
+          value={{ value: valueBrand, label: valueBrand }}
           classNamePrefix="react-select"
-          // onChange={(e) => handleCategoriId(e)}
+          onChange={e => dispatch(selectBrand(e.value))}
           components={{
             DropdownIndicator: () => (
               <StyledIconSelect>
@@ -39,11 +69,10 @@ export const Selects = () => {
               To
             </>
           }
-          // options={normalized}
-          // defaultValue={initialValue}
-          // value={initialValue}
+          options={priceOption}
+          value={{ value: valuePrice, label: valuePrice }}
           classNamePrefix="react-select"
-          // onChange={(e) => handleCategoriId(e)}
+          onChange={e => dispatch(selectPrice(e.value))}
           components={{
             DropdownIndicator: () => (
               <StyledIconSelect>

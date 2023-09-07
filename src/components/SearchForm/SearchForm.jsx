@@ -5,6 +5,7 @@ import { StyledSearcgForm, StyledSearchBtn } from './SearchForm.styled';
 export default function SearchForm() {
   const handleSearch = e => {
     e.preventDefault();
+    console.log('ffff', e);
   };
   return (
     <StyledSearcgForm onSubmit={handleSearch}>
