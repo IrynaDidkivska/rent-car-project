@@ -4,8 +4,6 @@ Welcome to the CarRentals website! This web application is designed to help
 users easily find and rent cars of various configurations. It's built using
 Vite, providing a seamless experience for users looking to rent a car.
 
-![CarRentals Screenshot](/screenshots/main.jpg/)
-
 ## Table of Contents
 
 1. [Features](#features)
@@ -19,7 +17,7 @@ CarRentals offers the following key features:
 1. **Home Page**: A general description of the services provided by the company.
    The stylization and design of this page are customizable to your preferences.
 
-![HomePage Screenshot](/screenshots/homepage.jpg/)
+![HomePage Screenshot](public/screenshots/homepage.jpg/)
 
 2. **Car Catalog Page**: This page displays a catalog of cars with various
    configurations. Users can filter cars by:
@@ -32,7 +30,7 @@ CarRentals offers the following key features:
    "heart" button on the card. The button's color changes to indicate that the
    car is in the user's favorites.
 
-![CarRentals Screenshot](/screenshots/main.jpg/)
+![CarRentals Screenshot](public//screenshots/main.jpg/)
 
 4. **Modal Window**: When users interact with an card, a modal window appears,
    allowing them to add it to their favorites. The modal can be closed by:
@@ -40,7 +38,7 @@ CarRentals offers the following key features:
    - Clicking on the backdrop
    - Pressing the Esc key
 
-![Car Modal Screenshot](/screenshots/modal.jpg)
+![Car Modal Screenshot](public//screenshots/modal.jpg)
 
 ## Technologies Used
 
