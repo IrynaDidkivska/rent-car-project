@@ -3,7 +3,16 @@ import {
   StyledLogo,
   StyledLogoAccent,
 } from "../../components/Logo/Logo.styled";
-import { StyledHomeIcon, StyledList, StyledWrapTitle } from "./Home.styled";
+import {
+  StyledHomeIcon,
+  StyledItem,
+  StyledItemService,
+  StyledList,
+  StyledSubTitle,
+  StyledTextLink,
+  StyledWrapList,
+  StyledWrapTitle,
+} from "./Home.styled";
 
 export const Home = () => {
   return (
@@ -15,31 +24,25 @@ export const Home = () => {
           <StyledLogoAccent>Rentals</StyledLogoAccent>
         </StyledLogo>
       </StyledWrapTitle>
-      <ul>
-        <li>
-          <h3>Discover Ukraine with Ease</h3>
+      <StyledWrapList>
+        <StyledItem>
+          <StyledSubTitle>Discover Ukraine with Ease</StyledSubTitle>
           <p>
             Are you ready to explore Ukraine in style and comfort? Look no
             further than Ukraine Car Rentals, your trusted partner for all your
             car rental needs. Whether you&apos;re here for business or leisure,
             we have the perfect vehicle waiting for you.
           </p>
-        </li>
-        <li>
-          <h3>Our Services</h3>
-          <p>
-            At Ukraine Car Rentals, we are committed to providing you with a
-            seamless and unforgettable car rental experience. Here&apos;s what
-            sets us apart:
-          </p>
-        </li>
-        <li>
+        </StyledItem>
+
+        <StyledItem>
+          <StyledSubTitle>Our Services</StyledSubTitle>
           <StyledList>
-            <li>
+            <StyledItemService>
               <StyledHomeIcon>
                 <SpriteSVG name="car" />
               </StyledHomeIcon>
-              <h3>Wide Range of Cars</h3>
+              <StyledSubTitle>Wide Range of Cars</StyledSubTitle>
               <p>
                 Explore our diverse fleet of vehicles, from compact cars to
                 spacious SUVs and luxurious sedans.
@@ -48,23 +51,23 @@ export const Home = () => {
                 Filter your options to find the perfect car to suit your needs
                 and preferences.
               </p>
-            </li>
-            <li>
+            </StyledItemService>
+            <StyledItemService>
               <StyledHomeIcon>
                 <SpriteSVG name="phone" />
               </StyledHomeIcon>
-              <h3>Easy Booking</h3>
+              <StyledSubTitle>Easy Booking</StyledSubTitle>
               <p>Add your favorite cars to your list for quick access.</p>
               <p>
                 Contact our friendly team directly for personalized assistance
                 in renting your dream car.
               </p>
-            </li>
-            <li>
+            </StyledItemService>
+            <StyledItemService>
               <StyledHomeIcon>
                 <SpriteSVG name="key" />
               </StyledHomeIcon>
-              <h3>Detailed Information</h3>
+              <StyledSubTitle>Detailed Information</StyledSubTitle>
               <p>
                 Browse our extensive collection of cars with detailed
                 descriptions and high-quality images.
@@ -73,12 +76,27 @@ export const Home = () => {
                 Get a comprehensive view of each vehicle to make an informed
                 choice.
               </p>
-            </li>
-            <li>
+            </StyledItemService>
+            <StyledItemService>
+              <StyledHomeIcon>
+                <SpriteSVG name="shield" />
+              </StyledHomeIcon>
+              <StyledSubTitle>Insurance Options</StyledSubTitle>
+              <p>
+                We offer a range of insurance packages to protect you during
+                your rental.
+              </p>
+              <p>
+                Choose from options like collision damage waiver (CDW),
+                liability insurance, and personal accident insurance to ensure
+                you&apos;re covered in any situation.
+              </p>
+            </StyledItemService>
+            <StyledItemService>
               <StyledHomeIcon>
                 <SpriteSVG name="book" />
               </StyledHomeIcon>
-              <h3>Competitive Pricing</h3>
+              <StyledSubTitle>Competitive Pricing</StyledSubTitle>
               <p>
                 We pride ourselves on offering the best prices in the market.
               </p>
@@ -86,12 +104,12 @@ export const Home = () => {
                 Take advantage of our special offers and loyalty program to
                 enjoy even greater savings.
               </p>
-            </li>
-            <li>
+            </StyledItemService>
+            <StyledItemService>
               <StyledHomeIcon>
                 <SpriteSVG name="user" />
               </StyledHomeIcon>
-              <h3>Exceptional Service</h3>
+              <StyledSubTitle>Exceptional Service</StyledSubTitle>
               <p>
                 Our dedicated team is here to ensure your rental experience is
                 smooth and hassle-free
@@ -100,11 +118,11 @@ export const Home = () => {
                 From booking to drop-off, we&apos;re committed to exceeding your
                 expectations.
               </p>
-            </li>
+            </StyledItemService>
           </StyledList>
-        </li>
-        <li>
-          <h3>Why Choose Us?</h3>
+        </StyledItem>
+        <StyledItem>
+          <StyledSubTitle>Why Choose Us?</StyledSubTitle>
           <p>
             Ukraine Car Rentals is more than just a car rental company;
             we&apos;re your travel companion, making sure your journey is
@@ -115,18 +133,22 @@ export const Home = () => {
             priority, and we&apos;re here to make your car rental experience in
             Ukraine as effortless as possible.
           </p>
-        </li>
-        <li>
-          <h3>Contact Us</h3>
+        </StyledItem>
+        <StyledItem>
+          <StyledSubTitle>Contact Us</StyledSubTitle>
           <p>
             Ready to book your car or have any questions? Give us a{" "}
-            <a href="tel:+380730000000">call</a> or send us an{" "}
-            <a href="mailto:rentals@mail.com">email</a>. Our team is available
-            around the clock to assist you. Explore Ukraine with Ukraine Car
-            Rentals – your ticket to an unforgettable adventure!
+            <StyledTextLink href="tel:+380730000000">call</StyledTextLink> or
+            send us an{" "}
+            <StyledTextLink href="mailto:rentals@mail.com">
+              email
+            </StyledTextLink>
+            . Our team is available around the clock to assist you. Explore
+            Ukraine with Ukraine Car Rentals – your ticket to an unforgettable
+            adventure!
           </p>
-        </li>
-      </ul>
+        </StyledItem>
+      </StyledWrapList>
     </div>
   );
 };

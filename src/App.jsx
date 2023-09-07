@@ -2,16 +2,16 @@ import { Route, Routes } from "react-router-dom";
 import NotFound from "./pages/NotFound/NotFound";
 import { Layout } from "./components/Layout/Layout";
 import { Home } from "./pages/Home/Home";
-import { Catalog } from "./pages/Catalog/Catalog";
-import { Favorites } from "./pages/Favorites/Favorites";
+import { Catalog2 } from "./pages/Catalog/Catalog2";
+import { Favorites2 } from "./pages/Favorites/Favorites2";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="catalog" element={<Catalog />} />
-        <Route path="favorites" element={<Favorites />} />
+        <Route path="catalog" element={<Catalog2 />} />
+        <Route path="favorites" element={<Favorites2 />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>

@@ -9,7 +9,7 @@ export const slice = createSlice({
     error: "",
     isLoggedIn: false,
     currentPage: 1,
-    itemsPerPage: 8,
+    itemsPerPage: 9,
   },
   filterValue: "",
   isModalOpen: false,

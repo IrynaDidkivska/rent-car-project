@@ -4,7 +4,7 @@ import { styled } from "styled-components";
 export const StyledList = styled.ul`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 `;
 
 export const StyledLink = styled(NavLink)`
@@ -14,7 +14,7 @@ export const StyledLink = styled(NavLink)`
   gap: 5px;
   padding: 5px;
   font-family: Manrope-Medium;
-  font-size: 18px;
+  font-size: 24px;
   color: ${({ theme }) => theme.colors.mainBlack};
   transition: all 300ms ease-in-out;
   &:hover {

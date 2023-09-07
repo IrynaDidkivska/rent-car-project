@@ -44,8 +44,8 @@ export const StyledFavIconChecked = styled.div`
 `;
 export const StyledImgWrapper = styled.div`
   position: relative;
-  width: 274px;
-  height: 268px;
+  width: 350px;
+  height: 350px;
   margin-bottom: ${({ theme }) => theme.spacing(1)};
   background: linear-gradient(
     180deg,
@@ -74,7 +74,7 @@ export const StyledNameAccent = styled.span`
   color: ${({ theme }) => theme.colors.accent};
 `;
 export const StyledLearnMore = styled.button`
-  min-width: 274px;
+  min-width: 350px;
   margin-top: ${({ theme }) => theme.spacing(2)};
   padding-top: 12px;
   padding-bottom: 12px;
@@ -120,7 +120,7 @@ export const StyledDescr = styled.div`
 `;
 export const StyledLoadMore = styled.button`
   display: block;
-  margin: 0 auto;
+  margin: 20px auto;
   padding: 0;
   border: none;
   border-bottom: 1px solid #3470ff;

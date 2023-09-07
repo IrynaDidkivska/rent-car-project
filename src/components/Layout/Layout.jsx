@@ -1,20 +1,23 @@
 import { Outlet } from "react-router-dom";
-// import { Loader } from "./Loader/Loader";
+
 import { Container } from "../../styles/Container";
 import { NavBar } from "../NavBar/NavBar";
+import { Suspense } from "react";
+import { Loader } from "../Loader/Loader";
+import { StyledHeader } from "./Layout.styled";
 
 export const Layout = () => {
   return (
     <>
-      <header>
+      <StyledHeader>
         <NavBar />
-      </header>
+      </StyledHeader>
       <main>
-        {/* <Suspense fallback={<Loader />}> */}
-        <Container>
-          <Outlet />
-        </Container>
-        {/* </Suspense> */}
+        <Suspense fallback={<Loader />}>
+          <Container>
+            <Outlet />
+          </Container>
+        </Suspense>
       </main>
     </>
   );
