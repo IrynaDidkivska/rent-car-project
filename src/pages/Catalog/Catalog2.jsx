@@ -21,7 +21,7 @@ export const Catalog2 = () => {
   const currentPage = useSelector(selectCurrentPage);
   const itemPerPage = useSelector(selectItemsPerPage);
   const favoriteItems = useSelector(selectFavorites);
-
+  console.log(items);
   useEffect(() => {
     // TODO: IMPORTAD. Need call in Layout
     dispatch(fetchCars());

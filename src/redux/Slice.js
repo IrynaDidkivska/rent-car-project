@@ -16,7 +16,6 @@ export const slice = createSlice({
   id: null,
   reducers: {
     loadMoreItems: (state) => {
-      console.log("currentPage", state.currentPage);
       state.currentPage += 1;
     },
     modalOpen: (state, { payload }) => {
@@ -37,8 +36,6 @@ export const slice = createSlice({
     builder.addCase(fetchCars.fulfilled, (state, { payload }) => {
       state.items = payload;
       state.currentPage = 1;
-      console.log("items", state.items);
-      console.log("currentPage", state.currentPage);
     });
   },
 });

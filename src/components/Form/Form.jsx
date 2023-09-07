@@ -14,8 +14,6 @@ import { fetchCars } from "../../redux/operations";
 import { modalClose } from "../../redux/Slice";
 import { StyledDescr } from "../Card/Card.styled";
 
-// import { closeModal } from "../../redux/Slice";
-
 export const Form = () => {
   const dispatch = useDispatch();
   const items = useSelector(selectItem);

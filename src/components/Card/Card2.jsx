@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { fetchCars } from "../../redux/operations";
+import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import { SpriteSVG } from "../../../public/SpriteSVG";
 import {
@@ -10,7 +9,6 @@ import {
   StyledImg,
   StyledImgWrapper,
   StyledLearnMore,
-  StyledList,
   StyledName,
   StyledNameAccent,
   StyledWrapperName,
@@ -72,4 +70,20 @@ export const Card2 = ({ item, isFavorite }) => {
       </div>
     </li>
   );
+};
+
+Card2.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    img: PropTypes.string.isRequired,
+    make: PropTypes.string.isRequired,
+    model: PropTypes.string.isRequired,
+    year: PropTypes.number.isRequired,
+    rentalPrice: PropTypes.string.isRequired,
+    address: PropTypes.string.isRequired,
+    rentalCompany: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    functionalities: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  }).isRequired,
+  isFavorite: PropTypes.bool.isRequired,
 };
