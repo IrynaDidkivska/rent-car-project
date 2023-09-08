@@ -35,12 +35,7 @@ export const Card = ({ item, isFavorite }) => {
           )) || (
             <StyledFavIcon
               onClick={() => {
-                dispatch(
-                  addFavorites(item.id) &&
-                    toast.success(
-                      `You added ${item.make} ${item.model} to favorites!`
-                    )
-                );
+                dispatch(addFavorites(item.id));
               }}
             >
               <SpriteSVG name="favorite" />
