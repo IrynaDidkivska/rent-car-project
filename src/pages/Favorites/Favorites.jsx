@@ -13,8 +13,8 @@ import { loadMoreItems } from '../../redux/Slice';
 import { Card } from '../../components/Card/Card';
 import { StyledLoadMore } from '../../components/Card/Card.styled';
 
-import SideBar from '../../components/Sidebar/SideBar';
 import { SideBarThumb, StyledListFav, WithNav } from './Favorites.styled';
+import SideBar from '../../components/Sidebar/SideBar';
 
 export const Favorites = () => {
   const dispatch = useDispatch();
