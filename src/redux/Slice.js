@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchCars } from './operations';
+import { toast } from 'react-toastify';
 
 export const slice = createSlice({
   name: 'cars',
@@ -8,9 +9,9 @@ export const slice = createSlice({
     favoriteItems: [],
     filteredItems: [],
     error: '',
-    isLoggedIn: false,
+    isLoading: false,
     currentPage: 1,
-    itemsPerPage: 9,
+    itemsPerPage: 8,
   },
   filterValue: '',
   isModalOpen: false,
@@ -53,7 +54,16 @@ export const slice = createSlice({
     builder.addCase(fetchCars.fulfilled, (state, { payload }) => {
       state.items = payload;
       state.currentPage = 1;
-    });
+      state.isLoading = false;
+    }),
+      builder.addCase(fetchCars.pending, state => {
+        state.isLoading = true;
+        state.error = '';
+      }),
+      builder.addCase(fetchCars.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = toast.error(`${payload}`);
+      });
   },
 });
 

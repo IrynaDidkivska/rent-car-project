@@ -2,7 +2,6 @@ import { styled } from 'styled-components';
 
 export const StyledForm = styled.form`
   width: 541px;
-  height: 752px;
   overflow: hidden;
 
   position: relative;
@@ -10,10 +9,27 @@ export const StyledForm = styled.form`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  gap: 40px;
-  padding: 15px 40px 52px 35px;
+  padding: 40px;
+  gap: 24px;
   border-radius: 24px;
   background: ${({ theme }) => theme.colors.background};
+  img {
+    border-radius: 14px;
+    background: #f3f3f2;
+  }
+`;
+//Wrappers
+export const ImgAnfTitleWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+`;
+export const AccAndFuncWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
 `;
 export const StyledCloseIcon = styled.div`
   display: block;
@@ -40,18 +56,40 @@ export const StyledLinkCall = styled.a`
     background: ${({ theme }) => theme.link.backgroundHover};
   }
 `;
-//Title
-export const StyledNameForm = styled.p`
-  font-size: 18px;
-  text-transform: capitalize;
-  font-weight: 500;
-`;
-export const StyledNameAccentForm = styled.span`
-  color: ${({ theme }) => theme.colors.accent};
-`;
 
+//SubTitle
+export const StyledSubtitle = styled.h4`
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.43;
+`;
 //Desc
 export const StyledDescrForm = styled.p`
   font-size: 14px;
   line-height: 1.43;
+`;
+//Rental Cond
+export const StyledCont = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+`;
+export const StyledRentCondWrapper = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  font-family: Montserrat;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: -0.24px;
+  color: ${({ theme }) => theme.colors.secondaryBlack};
+`;
+export const StyledItem = styled.li`
+  padding: 7px 14px;
+  border-radius: 35px;
+  background: #f9f9f9;
 `;

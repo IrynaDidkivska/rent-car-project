@@ -2,16 +2,24 @@ import { Route, Routes } from 'react-router-dom';
 import NotFound from './pages/NotFound/NotFound';
 import { Layout } from './components/Layout/Layout';
 import { Home } from './pages/Home/Home';
-import { Catalog2 } from './pages/Catalog/Catalog2';
-import { Favorites2 } from './pages/Favorites/Favorites2';
+import { Catalog } from './pages/Catalog/Catalog';
+import { Favorites } from './pages/Favorites/Favorites';
+import { useEffect } from 'react';
+import { fetchCars } from './redux/operations';
+import { useDispatch } from 'react-redux';
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchCars());
+  }, [dispatch]);
+
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="catalog" element={<Catalog2 />} />
-        <Route path="favorites" element={<Favorites2 />} />
+        <Route path="catalog" element={<Catalog />} />
+        <Route path="favorites" element={<Favorites />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>

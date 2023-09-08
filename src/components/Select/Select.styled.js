@@ -34,12 +34,17 @@ export const StyledSelect = styled(Select)`
 
   /* Стили для опций (вариантов) */
   .react-select__option {
-    color: ${({ theme }) => theme.colors.mainBlack};
+    color: ${({ theme }) => theme.colors.text};
     font-family: Manrope;
     font-size: 16px;
     font-weight: 500;
     line-height: 1.25;
     cursor: pointer;
+    background-color: transparent;
+    &:hover,
+    &:focus {
+      color: ${({ theme }) => theme.colors.mainBlack};
+    }
   }
 
   .react-select__menu {
@@ -56,6 +61,14 @@ export const StyledSelect = styled(Select)`
   .react-select__menu-list {
     overflow-y: auto; /* Добавляем вертикальную прокрутку при необходимости */
     overflow-x: hidden; /* Скрываем горизонтальную полосу прокрутки */
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(18, 20, 23, 0.05);
+      border-radius: 10px;
+    }
   }
   .react-select__placeholder {
     margin: 0;
@@ -118,4 +131,11 @@ export const StyledLabelSelect = styled.p`
 `;
 export const Wrapper = styled.div`
   position: relative;
+`;
+
+const CustomLabel = styled.label`
+  /* Add your label styles here */
+  color: blue;
+  font-size: 16px;
+  /* Add any other CSS properties you want */
 `;

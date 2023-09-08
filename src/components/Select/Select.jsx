@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+
 import { SpriteSVG } from '../../../public/SpriteSVG';
 import {
   selectItem,
@@ -31,7 +32,10 @@ export const Selects = () => {
     }));
 
   const priceOption = uniq(
-    items.map(({ rentalPrice }) => Number(rentalPrice.replace('$', '')))
+    items.map(
+      ({ rentalPrice }) =>
+        Math.round(Number(rentalPrice.replace('$', '')) / 10) * 10
+    )
   )
     .sort((a, b) => a - b)
     .map(price => ({
@@ -44,9 +48,14 @@ export const Selects = () => {
       <Wrapper>
         <StyledLabelSelect>Car brand</StyledLabelSelect>
         <StyledSelectBrand
-          placeholder="Enter the text"
+          aria-label="Select car brand"
           options={brandOptions}
-          value={{ value: valueBrand, label: valueBrand }}
+          placeholder="Enter the text"
+          // value={
+          //   valueBrand
+          //     ? { value: valueBrand, label: valueBrand }
+          //     : { value: '', label: 'Enter the text' }
+          // }
           classNamePrefix="react-select"
           onChange={e => dispatch(selectBrand(e.value))}
           components={{
@@ -61,6 +70,7 @@ export const Selects = () => {
       <Wrapper>
         <StyledLabelSelect>Price/ 1 hour</StyledLabelSelect>
         <StyledSelectPrice
+          aria-label="Select car price"
           placeholder={
             <>
               <StyledIconDollar>
@@ -70,7 +80,7 @@ export const Selects = () => {
             </>
           }
           options={priceOption}
-          value={{ value: valuePrice, label: valuePrice }}
+          // value={{ value: valuePrice, label: valuePrice }}
           classNamePrefix="react-select"
           onChange={e => dispatch(selectPrice(e.value))}
           components={{
