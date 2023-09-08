@@ -12,9 +12,9 @@ import {
 import { loadMoreItems } from '../../redux/Slice';
 import { Card } from '../../components/Card/Card';
 import { StyledLoadMore } from '../../components/Card/Card.styled';
-import { WithNav, Sidebar, StyledListFav } from './Favorites.styled.js';
 
 import SideBar from '../../components/Sidebar/SideBar';
+import { SideBarThumb, StyledListFav, WithNav } from './Favorites.styled';
 export const Favorites = () => {
   const dispatch = useDispatch();
   const openModal = useSelector(selectModal);
@@ -27,9 +27,9 @@ export const Favorites = () => {
   const showedItems = currentPage * itemPerPage;
   return (
     <WithNav>
-      <Sidebar>
+      <SideBarThumb>
         <SideBar />
-      </Sidebar>
+      </SideBarThumb>
 
       <StyledListFav>
         {filteredItems.map(item => (

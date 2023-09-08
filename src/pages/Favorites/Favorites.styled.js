@@ -7,7 +7,7 @@ export const WithNav = styled.div`
   margin-top: 40px;
 `;
 
-export const Sidebar = styled.div`
+export const SideBarThumb = styled.div`
   width: 40%;
   padding: 20px;
   border-radius: 14px;
