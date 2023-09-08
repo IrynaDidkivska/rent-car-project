@@ -11,10 +11,7 @@ import {
 } from '../../redux/selectors';
 import { loadMoreItems } from '../../redux/Slice';
 import { Card } from '../../components/Card/Card';
-import { StyledLoadMore } from '../../components/Card/Card.styled';
-
-import { SideBarThumb, StyledListFav, WithNav } from './Favorites.styled';
-import SideBar from '../../components/Sidebar/SideBar';
+import { StyledList, StyledLoadMore } from '../../components/Card/Card.styled';
 
 export const Favorites = () => {
   const dispatch = useDispatch();
@@ -27,16 +24,12 @@ export const Favorites = () => {
 
   const showedItems = currentPage * itemPerPage;
   return (
-    <WithNav>
-      <SideBarThumb>
-        <SideBar />
-      </SideBarThumb>
-
-      <StyledListFav>
+    <>
+      <StyledList>
         {filteredItems.map(item => (
           <Card key={item.id} item={item} isFavorite={true} />
         ))}
-      </StyledListFav>
+      </StyledList>
       {showedItems < filteredItems.length && (
         <StyledLoadMore type="button" onClick={() => dispatch(loadMoreItems())}>
           Load more
@@ -47,6 +40,6 @@ export const Favorites = () => {
           <Form />
         </Modal>
       )}
-    </WithNav>
+    </>
   );
 };
