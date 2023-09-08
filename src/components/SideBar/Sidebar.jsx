@@ -4,22 +4,20 @@ import { LiaCarSideSolid } from 'react-icons/lia';
 
 function SideBar() {
   return (
-    <nav>
-      <ul>
-        <li>
-          <StyledLink to="/">
-            Home
-            <GrHomeRounded />
-          </StyledLink>
-        </li>
-        <li>
-          <StyledLink to="/catalog">
-            Catalog
-            <LiaCarSideSolid style={{ width: '1.5em', height: '1.5em' }} />
-          </StyledLink>
-        </li>
-      </ul>
-    </nav>
+    <ul>
+      <li>
+        <StyledLink to="/">
+          Home
+          <GrHomeRounded />
+        </StyledLink>
+      </li>
+      <li>
+        <StyledLink to="/catalog">
+          Catalog
+          <LiaCarSideSolid style={{ width: '1.5em', height: '1.5em' }} />
+        </StyledLink>
+      </li>
+    </ul>
   );
 }
 
