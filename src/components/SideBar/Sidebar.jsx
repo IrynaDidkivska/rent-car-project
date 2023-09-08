@@ -1,6 +1,6 @@
-import { StyledLink } from '../NavBar/NavBar.styled';
 import { GrHomeRounded } from 'react-icons/gr';
 import { LiaCarSideSolid } from 'react-icons/lia';
+import { StyledLink } from '../NavBar/NavBar.styled';
 
 function SideBar() {
   return (

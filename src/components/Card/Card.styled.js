@@ -19,22 +19,8 @@ export const StyledFavIcon = styled.div`
   right: ${({ theme }) => theme.spacing(1)};
   width: 18px;
   height: 18px;
-  fill: transparent;
-  stroke: ${({ theme }) => theme.colors.mainWhite};
-  transition: ${({ theme }) => theme.transition};
-  &:hover {
-    transform: scale(1.1);
-    stroke: ${({ theme }) => theme.colors.accent};
-  }
-`;
-export const StyledFavIconChecked = styled.div`
-  position: absolute;
-  top: ${({ theme }) => theme.spacing(1)};
-  right: ${({ theme }) => theme.spacing(1)};
-  width: 18px;
-  height: 18px;
-  fill: ${({ theme }) => theme.link.background};
-  stroke: ${({ theme }) => theme.link.background};
+  fill: ${props => (props.$isFavorite ? '#3470ff' : 'transparent')};
+  stroke: ${props => (props.$isFavorite ? '#3470ff' : '#ffffff')};
   transition: ${({ theme }) => theme.transition};
   &:hover {
     transform: scale(1.1);
@@ -42,6 +28,7 @@ export const StyledFavIconChecked = styled.div`
     fill: ${({ theme }) => theme.link.backgroundHover};
   }
 `;
+
 export const StyledImgWrapper = styled.div`
   position: relative;
   width: 350px;

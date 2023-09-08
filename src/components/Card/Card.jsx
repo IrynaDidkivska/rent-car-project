@@ -4,7 +4,6 @@ import { SpriteSVG } from '../../../public/SpriteSVG';
 import {
   StyledFavBtn,
   StyledFavIcon,
-  StyledFavIconChecked,
   StyledImg,
   StyledImgWrapper,
   StyledLearnMore,
@@ -18,28 +17,21 @@ import { StyledDescr } from '../../styles/Text';
 export const Card = ({ item, isFavorite }) => {
   const dispatch = useDispatch();
 
+  const toggleFavorites = () => {
+    if (!isFavorite) {
+      dispatch(addFavorites(item.id));
+    } else {
+      dispatch(removeFavorites(item.id));
+    }
+  };
   return (
     <li key={item.id}>
       <StyledImgWrapper>
         <StyledImg src={item.img} alt={item.make} width="274" />
-        <StyledFavBtn>
-          {(isFavorite && (
-            <StyledFavIconChecked
-              onClick={() => {
-                dispatch(removeFavorites(item.id));
-              }}
-            >
-              <SpriteSVG name="favorite" />
-            </StyledFavIconChecked>
-          )) || (
-            <StyledFavIcon
-              onClick={() => {
-                dispatch(addFavorites(item.id));
-              }}
-            >
-              <SpriteSVG name="favorite" />
-            </StyledFavIcon>
-          )}
+        <StyledFavBtn onClick={toggleFavorites}>
+          <StyledFavIcon $isFavorite={isFavorite}>
+            <SpriteSVG name="favorite" />
+          </StyledFavIcon>
         </StyledFavBtn>
       </StyledImgWrapper>
       <div>

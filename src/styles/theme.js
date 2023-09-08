@@ -11,7 +11,7 @@ export const theme = {
 
   button: {
     textColor: '#3470FF',
-    textColorHover: ' ##0B44CD',
+    textColorHover: ' #0B44CD',
   },
   link: {
     textColor: '#FFFFFF',
