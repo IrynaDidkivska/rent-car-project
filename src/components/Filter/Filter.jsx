@@ -5,13 +5,8 @@ import {
   StyledInputTo,
   StyledLabelFilter,
 } from './Filter.styled';
-import {
-  selectItem,
-  selectValueFrom,
-  selectValueTo,
-} from '../../redux/selectors';
+import { selectValueFrom, selectValueTo } from '../../redux/selectors';
 import { selectFrom, selectTo } from '../../redux/Slice';
-import uniq from 'lodash.uniq';
 
 export const Filter = () => {
   const dispatch = useDispatch();

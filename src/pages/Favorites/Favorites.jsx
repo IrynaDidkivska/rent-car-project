@@ -11,8 +11,10 @@ import {
 } from '../../redux/selectors';
 import { loadMoreItems } from '../../redux/Slice';
 import { Card } from '../../components/Card/Card';
-import { StyledList, StyledLoadMore } from '../../components/Card/Card.styled';
+import { StyledLoadMore } from '../../components/Card/Card.styled';
+import { WithNav, Sidebar, StyledListFav } from './Favorites.styled.js';
 
+import SideBar from '../../components/Sidebar/SideBar';
 export const Favorites = () => {
   const dispatch = useDispatch();
   const openModal = useSelector(selectModal);
@@ -24,12 +26,16 @@ export const Favorites = () => {
 
   const showedItems = currentPage * itemPerPage;
   return (
-    <>
-      <StyledList>
+    <WithNav>
+      <Sidebar>
+        <SideBar />
+      </Sidebar>
+
+      <StyledListFav>
         {filteredItems.map(item => (
           <Card key={item.id} item={item} isFavorite={true} />
         ))}
-      </StyledList>
+      </StyledListFav>
       {showedItems < filteredItems.length && (
         <StyledLoadMore type="button" onClick={() => dispatch(loadMoreItems())}>
           Load more
@@ -40,6 +46,6 @@ export const Favorites = () => {
           <Form />
         </Modal>
       )}
-    </>
+    </WithNav>
   );
 };

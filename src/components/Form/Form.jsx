@@ -6,10 +6,13 @@ import {
   StyledCloseIcon,
   StyledCont,
   StyledDescrForm,
+  StyledDiv,
   StyledForm,
+  StyledImgForm,
   StyledItem,
   StyledLinkCall,
   StyledRentCondWrapper,
+  StyledSpanForm,
   StyledSubtitle,
 } from './Form.styled';
 import { selectId, selectItem } from '../../redux/selectors';
@@ -30,7 +33,6 @@ export const Form = () => {
   const id = useSelector(selectId);
 
   const filteredItem = items.filter(el => el.id === id)[0];
-  console.log('Filtered', filteredItem);
 
   useEffect(() => {
     dispatch(fetchCars());
@@ -45,27 +47,32 @@ export const Form = () => {
     <StyledForm onSubmit={handleSubmit}>
       <StyledCloseIcon
         onClick={() => {
-          console.log('Close icon');
           dispatch(modalClose());
         }}
       >
         <SpriteSVG name={'close'} />
       </StyledCloseIcon>
       <ImgAnfTitleWrapper>
-        <img src={filteredItem.img} alt={filteredItem.make} />
-        <StyledTextMain>
-          {filteredItem.make.toLowerCase()}
-          <StyledSpan> {filteredItem.model}</StyledSpan>, {filteredItem.year}
-        </StyledTextMain>
-        <StyledDescr>
-          <p>{filteredItem.address.split(',')[1].trim()}</p>
-          <p>{filteredItem.address.split(',')[2].trim()}</p>
-          <p>Id: {filteredItem.id}</p>
-          <p>Year: {filteredItem.year}</p>
-          <p>Type: {filteredItem.type}</p>
-          <p>Fuel Consumption: {filteredItem.fuelConsumption}</p>
-          <p>Engine Size: {filteredItem.engineSize.split('-')[0].trim()}</p>
-        </StyledDescr>
+        <StyledImgForm src={filteredItem.img} alt={filteredItem.make} />
+        <div>
+          <StyledTextMain>
+            {filteredItem.make.toLowerCase()}
+            <StyledSpan> {filteredItem.model}</StyledSpan>, {filteredItem.year}
+          </StyledTextMain>
+          <StyledDescr>
+            <StyledDiv>
+              <p>{filteredItem.address.split(',')[1].trim()}</p>
+              <p>{filteredItem.address.split(',')[2].trim()}</p>
+              <p>Id: {filteredItem.id}</p>
+              <p>Year: {filteredItem.year}</p>
+              <p>Type: {filteredItem.type}</p>
+            </StyledDiv>
+            <StyledDiv>
+              <p>Fuel Consumption: {filteredItem.fuelConsumption}</p>
+              <p>Engine Size: {filteredItem.engineSize.split('-')[0].trim()}</p>
+            </StyledDiv>
+          </StyledDescr>
+        </div>
         <StyledDescrForm> {filteredItem.description}</StyledDescrForm>
       </ImgAnfTitleWrapper>
       <AccAndFuncWrapper>
@@ -82,9 +89,9 @@ export const Form = () => {
           <StyledItem>
             <p>
               Minimum age :{' '}
-              <StyledSpan>
+              <StyledSpanForm>
                 {filteredItem.rentalConditions.split('\n')[0].split(': ')[1]}
-              </StyledSpan>
+              </StyledSpanForm>
             </p>
           </StyledItem>
           <StyledItem>
@@ -96,15 +103,17 @@ export const Form = () => {
           <StyledItem>
             <p>
               Mileage:{' '}
-              <StyledSpan>
+              <StyledSpanForm>
                 {filteredItem.mileage.toLocaleString('en-US')}
-              </StyledSpan>
+              </StyledSpanForm>
             </p>
           </StyledItem>
           <StyledItem>
             <p>
               Price:{' '}
-              <StyledSpan>{filteredItem.rentalPrice.substring(1)}$</StyledSpan>
+              <StyledSpanForm>
+                {filteredItem.rentalPrice.substring(1)}$
+              </StyledSpanForm>
             </p>
           </StyledItem>
         </StyledRentCondWrapper>

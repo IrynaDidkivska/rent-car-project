@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+import { StyledSpan } from '../../styles/Text';
 
 export const StyledForm = styled.form`
   width: 541px;
@@ -92,4 +93,15 @@ export const StyledItem = styled.li`
   padding: 7px 14px;
   border-radius: 35px;
   background: #f9f9f9;
+`;
+export const StyledSpanForm = styled(StyledSpan)`
+  font-weight: 600;
+`;
+export const StyledImgForm = styled.img`
+  object-fit: cover;
+  width: 461px;
+  height: 248px;
+`;
+export const StyledDiv = styled.div`
+  display: flex;
 `;

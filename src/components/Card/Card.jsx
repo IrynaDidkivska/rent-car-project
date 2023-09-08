@@ -14,7 +14,6 @@ import {
 } from './Card.styled';
 import { addFavorites, removeFavorites, modalOpen } from '../../redux/Slice';
 import { StyledDescr } from '../../styles/Text';
-import { toast } from 'react-toastify';
 
 export const Card = ({ item, isFavorite }) => {
   const dispatch = useDispatch();
