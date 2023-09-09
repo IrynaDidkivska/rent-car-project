@@ -1,11 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 
 import { SpriteSVG } from '../../../public/SpriteSVG';
-import {
-  selectItem,
-  selectValueBrand,
-  selectValuePrice,
-} from '../../redux/selectors';
+import { selectCarValues, selectItem } from '../../redux/selectors';
 import {
   StyledIconDollar,
   StyledIconSelect,
@@ -15,15 +11,12 @@ import {
   Wrapper,
 } from './Select.styled';
 import uniq from 'lodash.uniq';
-import { selectBrand, selectPrice } from '../../redux/Slice';
+import { selectBrand, selectPrice } from '../../redux/Select/selectSlice';
 
 export const Selects = () => {
   const dispatch = useDispatch();
   const items = useSelector(selectItem);
-  const valueBrand = useSelector(selectValueBrand);
-
-  const valuePrice = useSelector(selectValuePrice);
-
+  const { valueBrand, valuePrice } = useSelector(selectCarValues);
   const brandOptions = uniq(items.map(({ make }) => make))
     .sort()
     .map(brand => ({
@@ -51,13 +44,12 @@ export const Selects = () => {
           aria-label="Select car brand"
           options={brandOptions}
           placeholder="Enter the text"
-          // value={
-          //   valueBrand
-          //     ? { value: valueBrand, label: valueBrand }
-          //     : { value: '', label: 'Enter the text' }
-          // }
+          clearValue={null}
+          value={valueBrand ? { value: valueBrand, label: valueBrand } : null}
+          onChange={selectedOption =>
+            dispatch(selectBrand(selectedOption ? selectedOption.value : ''))
+          }
           classNamePrefix="react-select"
-          onChange={e => dispatch(selectBrand(e.value))}
           components={{
             DropdownIndicator: () => (
               <StyledIconSelect>
@@ -79,10 +71,13 @@ export const Selects = () => {
               To
             </>
           }
+          clearValue={null}
           options={priceOption}
-          // value={{ value: valuePrice, label: valuePrice }}
+          value={valuePrice ? { value: valuePrice, label: valuePrice } : null}
           classNamePrefix="react-select"
-          onChange={e => dispatch(selectPrice(e.value))}
+          onChange={selectedOption =>
+            dispatch(selectPrice(selectedOption ? selectedOption.value : ''))
+          }
           components={{
             DropdownIndicator: () => (
               <StyledIconSelect>

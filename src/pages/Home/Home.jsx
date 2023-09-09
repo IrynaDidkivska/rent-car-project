@@ -1,8 +1,8 @@
-import { SpriteSVG } from "../../../public/SpriteSVG";
+import { SpriteSVG } from '../../../public/SpriteSVG';
 import {
   StyledLogo,
   StyledLogoAccent,
-} from "../../components/Logo/Logo.styled";
+} from '../../components/Logo/Logo.styled';
 import {
   StyledHomeIcon,
   StyledItem,
@@ -12,9 +12,9 @@ import {
   StyledTextLink,
   StyledWrapList,
   StyledWrapTitle,
-} from "./Home.styled";
+} from './Home.styled';
 
-export const Home = () => {
+const Home = () => {
   return (
     <div>
       <StyledWrapTitle>
@@ -137,9 +137,9 @@ export const Home = () => {
         <StyledItem>
           <StyledSubTitle>Contact Us</StyledSubTitle>
           <p>
-            Ready to book your car or have any questions? Give us a{" "}
+            Ready to book your car or have any questions? Give us a{' '}
             <StyledTextLink href="tel:+380730000000">call</StyledTextLink> or
-            send us an{" "}
+            send us an{' '}
             <StyledTextLink href="mailto:rentals@mail.com">
               email
             </StyledTextLink>
@@ -152,3 +152,4 @@ export const Home = () => {
     </div>
   );
 };
+export default Home;

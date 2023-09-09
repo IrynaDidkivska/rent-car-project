@@ -13,7 +13,7 @@ import { loadMoreItems } from '../../redux/Slice';
 import { Card } from '../../components/Card/Card';
 import { StyledList, StyledLoadMore } from '../../components/Card/Card.styled';
 
-export const Favorites = () => {
+const Favorites = () => {
   const dispatch = useDispatch();
   const openModal = useSelector(selectModal);
   const items = useSelector(selectItem);
@@ -43,3 +43,4 @@ export const Favorites = () => {
     </>
   );
 };
+export default Favorites;

@@ -5,26 +5,23 @@ import {
   StyledInputTo,
   StyledLabelFilter,
 } from './Filter.styled';
-import { selectValueFrom, selectValueTo } from '../../redux/selectors';
-import { selectFrom, selectTo } from '../../redux/Slice';
+import { selectCarValues } from '../../redux/selectors';
+import { selectFrom, selectTo } from '../../redux/Select/selectSlice';
 
 export const Filter = () => {
   const dispatch = useDispatch();
-  // const items = useSelector(selectItem);
-  const valueFrom = useSelector(selectValueFrom);
-  const valueTo = useSelector(selectValueTo);
-  // console.log(valueFrom);
 
-  // const valueTo = useSelector(selectValueTo);
+  const { valueFrom, valueTo } = useSelector(selectCarValues);
 
-  // const fromValue = uniq(
-  //   items.map(({ mileage }) => mileage.toLocaleString('en-US'))
-  // )
-  //   .sort()
-  //   .map(mileage => ({
-  //     value: mileage,
-  //     label: mileage,
-  //   }));
+  const handleInputChange = e => {
+    const { name, value } = e.target;
+    if (name === 'from') {
+      dispatch(selectFrom(value));
+    } else if (name === 'to') {
+      dispatch(selectTo(value));
+    }
+  };
+
   return (
     <Wrapper>
       <StyledLabelFilter>Сar mileage / km</StyledLabelFilter>
@@ -33,15 +30,17 @@ export const Filter = () => {
           type="number"
           name="from"
           placeholder="From"
+          pattern="/^[+]?\d+(,\d+)?$/"
           value={valueFrom}
-          onChange={e => dispatch(selectFrom(e.target.value))}
+          onChange={handleInputChange}
         />
         <StyledInputTo
           type="number"
           name="to"
           placeholder="To"
+          pattern="/^[+]?\d+(,\d+)?$/"
           value={valueTo}
-          onChange={e => dispatch(selectTo(e.target.value))}
+          onChange={handleInputChange}
         />
       </div>
     </Wrapper>

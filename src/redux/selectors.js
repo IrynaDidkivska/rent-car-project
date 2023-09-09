@@ -1,3 +1,4 @@
+import { createSelector } from 'reselect';
 //cars
 export const selectItem = state => state.cars.items;
 export const selectCurrentPage = state => state.cars.currentPage;
@@ -9,7 +10,17 @@ export const selectId = state => state.cars.id;
 //Fav
 export const selectFavorites = state => state.cars.favoriteItems;
 //Select
-export const selectValueBrand = state => state.cars.valueBrand;
-export const selectValuePrice = state => state.cars.valuePrice;
-export const selectValueFrom = state => state.cars.valueFrom;
-export const selectValueTo = state => state.cars.valueTo;
+const selectValueBrand = state => state.select.valueBrand;
+const selectValuePrice = state => state.select.valuePrice;
+const selectValueFrom = state => state.select.valueFrom;
+const selectValueTo = state => state.select.valueTo;
+
+export const selectCarValues = createSelector(
+  [selectValueBrand, selectValuePrice, selectValueFrom, selectValueTo],
+  (valueBrand, valuePrice, valueFrom, valueTo) => ({
+    valueBrand,
+    valuePrice,
+    valueFrom,
+    valueTo,
+  })
+);

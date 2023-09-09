@@ -1,17 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
-
 import { StyledLoadMore, StyledList } from '../../components/Card/Card.styled';
-
 import {
   selectModal,
   selectItem,
   selectCurrentPage,
   selectItemsPerPage,
   selectFavorites,
-  selectValueBrand,
-  selectValuePrice,
-  selectValueFrom,
-  selectValueTo,
+  selectCarValues,
 } from '../../redux/selectors';
 import { loadMoreItems } from '../../redux/Slice';
 import SearchForm from '../../components/SearchForm/SearchForm';
@@ -19,7 +14,7 @@ import { Card } from '../../components/Card/Card';
 import Modal from '../../components/Modal/Modal';
 import { Form } from '../../components/Form/Form';
 
-export const Catalog = () => {
+const Catalog = () => {
   const dispatch = useDispatch();
   const openModal = useSelector(selectModal);
   const items = useSelector(selectItem);
@@ -27,10 +22,8 @@ export const Catalog = () => {
   const itemPerPage = useSelector(selectItemsPerPage);
   const favoriteItems = useSelector(selectFavorites);
 
-  const valueBrand = useSelector(selectValueBrand);
-  const valuePrice = useSelector(selectValuePrice);
-  const valueFrom = useSelector(selectValueFrom);
-  const valueTo = useSelector(selectValueTo);
+  const { valueBrand, valuePrice, valueFrom, valueTo } =
+    useSelector(selectCarValues);
 
   const filteredItems = items.filter(item => {
     if (valueBrand && item.make != valueBrand) {
@@ -77,3 +70,4 @@ export const Catalog = () => {
     </>
   );
 };
+export default Catalog;

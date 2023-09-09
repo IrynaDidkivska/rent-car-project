@@ -24,6 +24,7 @@ export const Card = ({ item, isFavorite }) => {
       dispatch(removeFavorites(item.id));
     }
   };
+
   return (
     <li key={item.id}>
       <StyledImgWrapper>

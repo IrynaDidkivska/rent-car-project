@@ -13,13 +13,9 @@ export const slice = createSlice({
     currentPage: 1,
     itemsPerPage: 8,
   },
-  filterValue: '',
+
   isModalOpen: false,
   id: null,
-  valueBrand: null,
-  valuePrice: null,
-  valueFrom: null,
-  valueTo: null,
   reducers: {
     loadMoreItems: state => {
       state.currentPage += 1;
@@ -36,18 +32,6 @@ export const slice = createSlice({
     },
     removeFavorites: (state, { payload }) => {
       state.favoriteItems = state.favoriteItems.filter(id => id !== payload);
-    },
-    selectBrand: (state, { payload }) => {
-      state.valueBrand = payload;
-    },
-    selectPrice: (state, { payload }) => {
-      state.valuePrice = payload;
-    },
-    selectFrom: (state, { payload }) => {
-      state.valueFrom = payload;
-    },
-    selectTo: (state, { payload }) => {
-      state.valueTo = payload;
     },
   },
   extraReducers: builder => {
@@ -73,9 +57,5 @@ export const {
   modalClose,
   addFavorites,
   removeFavorites,
-  selectBrand,
-  selectPrice,
-  selectFrom,
-  selectTo,
 } = slice.actions;
 export const carsReducer = slice.reducer;
