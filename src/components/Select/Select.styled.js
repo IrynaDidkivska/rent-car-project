@@ -132,10 +132,3 @@ export const StyledLabelSelect = styled.p`
 export const Wrapper = styled.div`
   position: relative;
 `;
-
-const CustomLabel = styled.label`
-  /* Add your label styles here */
-  color: blue;
-  font-size: 16px;
-  /* Add any other CSS properties you want */
-`;

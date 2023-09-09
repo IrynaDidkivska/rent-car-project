@@ -25,24 +25,14 @@ const Catalog = () => {
   const { valueBrand, valuePrice, valueFrom, valueTo } =
     useSelector(selectCarValues);
 
-  const filteredItems = items.filter(item => {
-    if (valueBrand && item.make != valueBrand) {
-      return false;
-    }
-    if (valuePrice) {
-      const _price = Number(item.rentalPrice.replace('$', ''));
-      if (_price > valuePrice) {
-        return false;
-      }
-    }
-    if (valueFrom && item.mileage < valueFrom) {
-      return false;
-    }
-    if (valueTo && item.mileage > valueTo) {
-      return false;
-    }
-    return true;
-  });
+  const filteredItems = items.filter(
+    item =>
+      (!valueBrand || item.make === valueBrand) &&
+      (!valuePrice ||
+        Number(item.rentalPrice.replace('$', '')) <= valuePrice) &&
+      (!valueFrom || item.mileage >= valueFrom) &&
+      (!valueTo || item.mileage <= valueTo)
+  );
 
   const showedItems = currentPage * itemPerPage;
   return (
