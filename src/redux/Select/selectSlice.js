@@ -7,8 +7,8 @@ export const sliceSelect = createSlice({
   },
   valueBrand: null,
   valuePrice: null,
-  valueFrom: null,
-  valueTo: null,
+  valueFrom: 0,
+  valueTo: 0,
   reducers: {
     selectBrand: (state, { payload }) => {
       state.valueBrand = payload;
