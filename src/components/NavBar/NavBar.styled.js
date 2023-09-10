@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
-import { styled } from "styled-components";
+import { NavLink } from 'react-router-dom';
+import { styled } from 'styled-components';
 
 export const StyledList = styled.ul`
   display: flex;
@@ -16,8 +16,9 @@ export const StyledLink = styled(NavLink)`
   font-family: Manrope-Medium;
   font-size: 24px;
   color: ${({ theme }) => theme.colors.mainBlack};
-  transition: all 300ms ease-in-out;
+  transition: ${({ theme }) => theme.transition};
   &:hover {
-    font-weight: 600;
+    color: ${({ theme }) => theme.colors.accent};
+    text-decoration: underline;
   }
 `;

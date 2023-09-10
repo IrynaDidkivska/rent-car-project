@@ -7,6 +7,7 @@ export const StyledList = styled.ul`
   margin-top: 50px;
   row-gap: 50px;
   column-gap: ${({ theme }) => theme.spacing(2)};
+  margin-bottom: 100px;
 `;
 export const StyledFavBtn = styled.button`
   display: block;
@@ -83,7 +84,7 @@ export const StyledLearnMore = styled.button`
 
 export const StyledLoadMore = styled.button`
   display: block;
-  margin: 20px auto;
+  margin: 0 auto;
   padding: 0;
   border: none;
   border-bottom: 1px solid #3470ff;

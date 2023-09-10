@@ -13,6 +13,7 @@ import SearchForm from '../../components/SearchForm/SearchForm';
 import { Card } from '../../components/Card/Card';
 import Modal from '../../components/Modal/Modal';
 import { Form } from '../../components/Form/Form';
+import { filterItems } from '../../helpers/filter';
 
 const Catalog = () => {
   const dispatch = useDispatch();
@@ -25,16 +26,16 @@ const Catalog = () => {
   const { valueBrand, valuePrice, valueFrom, valueTo } =
     useSelector(selectCarValues);
 
-  const filteredItems = items.filter(
-    item =>
-      (!valueBrand || item.make === valueBrand) &&
-      (!valuePrice ||
-        Number(item.rentalPrice.replace('$', '')) <= valuePrice) &&
-      (!valueFrom || item.mileage >= valueFrom) &&
-      (!valueTo || item.mileage <= valueTo)
+  const filteredItems = filterItems(
+    items,
+    valueBrand,
+    valuePrice,
+    valueFrom,
+    valueTo
   );
 
   const showedItems = currentPage * itemPerPage;
+
   return (
     <>
       <SearchForm />

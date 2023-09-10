@@ -13,6 +13,7 @@ import {
 } from './Card.styled';
 import { addFavorites, removeFavorites, modalOpen } from '../../redux/Slice';
 import { StyledDescr } from '../../styles/Text';
+import { renderPremium } from '../../helpers/premium';
 
 export const Card = ({ item, isFavorite }) => {
   const dispatch = useDispatch();
@@ -47,6 +48,7 @@ export const Card = ({ item, isFavorite }) => {
           <p>{item.address.split(',')[1].trim()}</p>
           <p>{item.address.split(',')[2].trim()}</p>
           <p>{item.rentalCompany}</p>
+          {renderPremium(item)}
         </StyledDescr>
         <StyledDescr>
           <p>{item.type}</p>
